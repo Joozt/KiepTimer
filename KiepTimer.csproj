@@ -131,6 +131,7 @@
     <EmbeddedResource Include="Properties\Resources.nl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.nl.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -151,11 +152,10 @@
     <Resource Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\VideoRecord.wav" />
+    <None Include="Resources\SoundHide.wav" />
+    <None Include="Resources\SoundShow.wav" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VideoStop.wav" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
