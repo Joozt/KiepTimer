@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 
 namespace KiepTimer
@@ -27,7 +28,7 @@ namespace KiepTimer
             colorPicker.SelectedColor = Properties.Settings.Default.Color;
             fontSize.Value = Properties.Settings.Default.Size;
             cbSound.IsChecked = Properties.Settings.Default.PlaySound;
-            cbAutoStart.IsChecked = isAutoStart();
+            cbAutoStart.IsChecked = IsAutoStart();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -88,7 +89,7 @@ namespace KiepTimer
             }
         }
 
-        private bool isAutoStart()
+        private bool IsAutoStart()
         {
             Microsoft.Win32.RegistryKey registryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
             return registryKey.GetValue("KiepTimer") != null;

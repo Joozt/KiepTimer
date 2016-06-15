@@ -136,6 +136,13 @@ Press Q to quit</value>
   <data name="Size" xml:space="preserve">
     <value>Size:</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SoundHide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SoundHide.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SoundShow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SoundShow.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
@@ -144,12 +151,5 @@ Press Q to quit</value>
   </data>
   <data name="Text" xml:space="preserve">
     <value>Text:</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="VideoRecord" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VideoRecord.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="VideoStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VideoStop.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

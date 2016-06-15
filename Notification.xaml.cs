@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -8,14 +9,36 @@ namespace KiepTimer
     public partial class Notification : Window
     {
         private System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
-        private System.Media.SoundPlayer showNotificationSound = new System.Media.SoundPlayer(Properties.Resources.VideoRecord);
-        private System.Media.SoundPlayer hideNotificationSound = new System.Media.SoundPlayer(Properties.Resources.VideoStop);
+        private System.Windows.Media.MediaPlayer showNotificationPlayer = new System.Windows.Media.MediaPlayer();
+        private System.Windows.Media.MediaPlayer hideNotificationPlayer = new System.Windows.Media.MediaPlayer();
         private bool playSound;
 
         public Notification()
         {
             InitializeComponent();
+
+            InitializeNotificationSounds();
             timer.Tick += Timer_Tick;
+        }
+
+        private void InitializeNotificationSounds()
+        {
+            if (!File.Exists("SoundHide.wav"))
+            {
+                FileStream soundHideOutputFile = new FileStream("SoundHide.wav", FileMode.Create, FileAccess.Write);
+                Properties.Resources.SoundHide.CopyTo(soundHideOutputFile);
+                soundHideOutputFile.Close();
+            }
+
+            if (!File.Exists("SoundShow.wav"))
+            {
+                FileStream soundShowOutputFile = new FileStream("SoundShow.wav", FileMode.Create, FileAccess.Write);
+                Properties.Resources.SoundShow.CopyTo(soundShowOutputFile);
+                soundShowOutputFile.Close();
+            }
+
+            showNotificationPlayer.Open(new Uri("SoundShow.wav", UriKind.Relative));
+            hideNotificationPlayer.Open(new Uri("SoundHide.wav", UriKind.Relative));
         }
 
         public void StartTimer(TimeSpan interval, string text, bool playSound, Color color, int fontSize)
@@ -27,7 +50,8 @@ namespace KiepTimer
 
             if (playSound)
             {
-                hideNotificationSound.Play();
+                hideNotificationPlayer.Position = new TimeSpan(0);
+                hideNotificationPlayer.Play();
             }
 
             timer.Interval = interval;
@@ -44,7 +68,8 @@ namespace KiepTimer
         {
             if (playSound)
             {
-                showNotificationSound.Play();
+                showNotificationPlayer.Position = new TimeSpan(0);
+                showNotificationPlayer.Play();
             }
             timer.Stop();
             Show();
@@ -54,7 +79,8 @@ namespace KiepTimer
         {
             if (playSound)
             {
-                hideNotificationSound.Play();
+                hideNotificationPlayer.Position = new TimeSpan(0);
+                hideNotificationPlayer.Play();
             }
             Hide();
             timer.Start();
@@ -66,7 +92,8 @@ namespace KiepTimer
             {
                 if (playSound)
                 {
-                    hideNotificationSound.Play();
+                    hideNotificationPlayer.Position = new TimeSpan(0);
+                    hideNotificationPlayer.Play();
                 }
                 Hide();
                 timer.Start();
