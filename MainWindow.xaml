@@ -1,0 +1,38 @@
+﻿<Window x:Class="KiepTimer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KiepTimer"
+        xmlns:p="clr-namespace:KiepTimer.Properties"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        mc:Ignorable="d"
+        Title="KiepTimer" Height="466" Width="363" ResizeMode="NoResize" Icon="Icon.ico" WindowStartupLocation="CenterScreen" FontSize="26.667" Closed="Window_Closed">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="116*"/>
+            <ColumnDefinition Width="195*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="{x:Static p:Resources.Interval}" Margin="10,10,10,0" Height="45" VerticalAlignment="Top"/>
+        <xctk:TimeSpanUpDown x:Name="interval" Margin="10,10,10,0" CultureInfo="nl-NL" DefaultValue="0:5:0" Grid.Column="1" Minimum="0:0:5" Maximum="23:59:59" Text="00:05:00" ClipValueToMinMax="True" DisplayDefaultValueOnEmptyText="True" Height="45" VerticalAlignment="Top" TextAlignment="Left"/>
+
+        <Label Content="{x:Static p:Resources.Text}" Margin="10,60,10,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="text" Grid.Column="1" Height="45" Margin="10,60,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <Label Content="{x:Static p:Resources.Color}" Margin="10,110,0,0" VerticalAlignment="Top"/>
+        <xctk:ColorPicker x:Name="colorPicker" Grid.Column="1" Margin="10,110,10,0" Height="45" VerticalAlignment="Top" ColorMode="ColorCanvas" />
+
+        <Label Content="{x:Static p:Resources.Size}" Margin="10,160,0,0" VerticalAlignment="Top"/>
+        <xctk:IntegerUpDown x:Name="fontSize" Grid.Column="1" Margin="10,160,10,0" Height="45" VerticalAlignment="Top" Increment="10" Maximum="500" Minimum="20" TextAlignment="Left" ClipValueToMinMax="True" />
+
+        <CheckBox x:Name="cbAutoStart" Content="{x:Static p:Resources.StartWithWindows}" Margin="10,0,10,122" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Bottom" Checked="cbAutoStart_CheckedChanged" Unchecked="cbAutoStart_CheckedChanged"/>
+        <CheckBox x:Name="cbSound" Content="{x:Static p:Resources.PlaySound}" Margin="10,0,10,82" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Bottom"/>
+
+        <Button x:Name="button" Content="{x:Static p:Resources.Start}" Grid.Column="1" Margin="10,0,10,10" Height="41" VerticalAlignment="Bottom" Click="button_Click" IsCancel="True" IsDefault="True"/>
+
+        <tb:TaskbarIcon x:Name="taskbarIcon" IconSource="Icon.ico" ToolTipText="KiepTimer" TrayLeftMouseDown="TaskbarIcon_TrayMouseDown" TrayRightMouseDown="TaskbarIcon_TrayMouseDown"/>
+    </Grid>
+</Window>
