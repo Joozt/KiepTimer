@@ -11,4 +11,6 @@ Features:
  - Shows icon in system tray while in background
  - Dutch and English language support
 
+![Screenshot](Screenshot2.png "Screenshot")
+ 
 ![Screenshot](Screenshot.png "Screenshot")
