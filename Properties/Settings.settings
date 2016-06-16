@@ -5,17 +5,26 @@
     <Setting Name="Interval" Type="System.TimeSpan" Scope="User">
       <Value Profile="(Default)">00:05:00</Value>
     </Setting>
-    <Setting Name="Text" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Notify!</Value>
+    <Setting Name="TitleText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PlaySound" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Color" Type="System.Windows.Media.Color" Scope="User">
+    <Setting Name="TitleColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFFFA200</Value>
     </Setting>
-    <Setting Name="Size" Type="System.Int32" Scope="User">
+    <Setting Name="TitleFontSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="SubtitleText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SubtitleColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFC3C3C3</Value>
+    </Setting>
+    <Setting Name="SubtitleFontSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">25</Value>
     </Setting>
   </Settings>
 </SettingsFile>

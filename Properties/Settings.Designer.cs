@@ -37,13 +37,13 @@ namespace KiepTimer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Notify!")]
-        public string Text {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TitleText {
             get {
-                return ((string)(this["Text"]));
+                return ((string)(this["TitleText"]));
             }
             set {
-                this["Text"] = value;
+                this["TitleText"] = value;
             }
         }
         
@@ -62,24 +62,60 @@ namespace KiepTimer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFA200")]
-        public global::System.Windows.Media.Color Color {
+        public global::System.Windows.Media.Color TitleColor {
             get {
-                return ((global::System.Windows.Media.Color)(this["Color"]));
+                return ((global::System.Windows.Media.Color)(this["TitleColor"]));
             }
             set {
-                this["Color"] = value;
+                this["TitleColor"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public int Size {
+        public int TitleFontSize {
             get {
-                return ((int)(this["Size"]));
+                return ((int)(this["TitleFontSize"]));
             }
             set {
-                this["Size"] = value;
+                this["TitleFontSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SubtitleText {
+            get {
+                return ((string)(this["SubtitleText"]));
+            }
+            set {
+                this["SubtitleText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFC3C3C3")]
+        public global::System.Windows.Media.Color SubtitleColor {
+            get {
+                return ((global::System.Windows.Media.Color)(this["SubtitleColor"]));
+            }
+            set {
+                this["SubtitleColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        public int SubtitleFontSize {
+            get {
+                return ((int)(this["SubtitleFontSize"]));
+            }
+            set {
+                this["SubtitleFontSize"] = value;
             }
         }
     }

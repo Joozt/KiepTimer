@@ -8,25 +8,40 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="KiepTimer" Height="466" Width="363" ResizeMode="NoResize" Icon="Icon.ico" WindowStartupLocation="CenterScreen" FontSize="26.667" Closed="Window_Closed">
-    
+        Title="KiepTimer" Height="566.229" Width="450.956" Icon="Icon.ico" WindowStartupLocation="CenterScreen" FontSize="26.667" Closed="Window_Closed" MinWidth="290" MinHeight="490">
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="116*"/>
-            <ColumnDefinition Width="195*"/>
-        </Grid.ColumnDefinitions>
+        <Label Content="{x:Static p:Resources.Interval}" Margin="10,10,0,0" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <xctk:TimeSpanUpDown x:Name="interval" Margin="140,10,10,0" CultureInfo="nl-NL" DefaultValue="0:5:0" Minimum="0:0:5" Maximum="23:59:59" Text="00:05:00" ClipValueToMinMax="True" DisplayDefaultValueOnEmptyText="True" Height="45" VerticalAlignment="Top" TextAlignment="Left"/>
 
-        <Label Content="{x:Static p:Resources.Interval}" Margin="10,10,10,0" Height="45" VerticalAlignment="Top"/>
-        <xctk:TimeSpanUpDown x:Name="interval" Margin="10,10,10,0" CultureInfo="nl-NL" DefaultValue="0:5:0" Grid.Column="1" Minimum="0:0:5" Maximum="23:59:59" Text="00:05:00" ClipValueToMinMax="True" DisplayDefaultValueOnEmptyText="True" Height="45" VerticalAlignment="Top" TextAlignment="Left"/>
+        <TabControl Margin="10,65,10,170">
+            <TabItem Header="{x:Static p:Resources.Title}">
+                <Grid Background="#FFE5E5E5">
 
-        <Label Content="{x:Static p:Resources.Text}" Margin="10,60,10,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="text" Grid.Column="1" Height="45" Margin="10,60,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textTitle" Margin="10,10,10,109" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextAlignment="Center"/>
 
-        <Label Content="{x:Static p:Resources.Color}" Margin="10,110,0,0" VerticalAlignment="Top"/>
-        <xctk:ColorPicker x:Name="colorPicker" Grid.Column="1" Margin="10,110,10,0" Height="45" VerticalAlignment="Top" ColorMode="ColorCanvas" />
+                    <Label Content="{x:Static p:Resources.Color}" Margin="10,0,0,59" HorizontalAlignment="Left" Height="45" VerticalAlignment="Bottom"/>
+                    <xctk:ColorPicker x:Name="colorPickerTitle" Margin="125,0,10,59" ColorMode="ColorCanvas" Height="45" VerticalAlignment="Bottom" />
 
-        <Label Content="{x:Static p:Resources.Size}" Margin="10,160,0,0" VerticalAlignment="Top"/>
-        <xctk:IntegerUpDown x:Name="fontSize" Grid.Column="1" Margin="10,160,10,0" Height="45" VerticalAlignment="Top" Increment="10" Maximum="500" Minimum="20" TextAlignment="Left" ClipValueToMinMax="True" />
+                    <Label Content="{x:Static p:Resources.Size}" Margin="10,0,0,9" HorizontalAlignment="Left" Height="45" VerticalAlignment="Bottom"/>
+                    <xctk:IntegerUpDown x:Name="fontSizeTitle" Margin="125,0,10,9" Increment="10" Maximum="500" Minimum="20" TextAlignment="Left" ClipValueToMinMax="True" Height="45" VerticalAlignment="Bottom" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="{x:Static p:Resources.Subtitle}">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="textSubtitle" Margin="10,10,10,109" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextAlignment="Center"/>
+
+                    <Label Content="{x:Static p:Resources.Color}" Margin="10,0,0,59" HorizontalAlignment="Left" Height="45" VerticalAlignment="Bottom"/>
+                    <xctk:ColorPicker x:Name="colorPickerSubtitle" Margin="125,0,10,59" ColorMode="ColorCanvas" Height="45" VerticalAlignment="Bottom" />
+
+                    <Label Content="{x:Static p:Resources.Size}" Margin="10,0,0,9" HorizontalAlignment="Left" Height="45" VerticalAlignment="Bottom"/>
+                    <xctk:IntegerUpDown x:Name="fontSizeSubtitle" Margin="125,0,10,9" Increment="5" Maximum="500" Minimum="10" TextAlignment="Left" ClipValueToMinMax="True" Height="45" VerticalAlignment="Bottom" />
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
 
         <CheckBox x:Name="cbAutoStart" Content="{x:Static p:Resources.StartWithWindows}" Margin="10,0,10,122" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Bottom" Checked="cbAutoStart_CheckedChanged" Unchecked="cbAutoStart_CheckedChanged"/>
         <CheckBox x:Name="cbSound" Content="{x:Static p:Resources.PlaySound}" Margin="10,0,10,82" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Bottom"/>

@@ -70,30 +70,30 @@ namespace KiepTimer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Interval:.
-        /// </summary>
-        public static string Interval {
-            get {
-                return ResourceManager.GetString("Interval", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Click or press escape to hide
         ///Press Q to quit.
         /// </summary>
-        public static string NotificationHint {
+        public static string DefaultSubtitle {
             get {
-                return ResourceManager.GetString("NotificationHint", resourceCulture);
+                return ResourceManager.GetString("DefaultSubtitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Notify!.
         /// </summary>
-        public static string Notify {
+        public static string DefaultTitle {
             get {
-                return ResourceManager.GetString("Notify", resourceCulture);
+                return ResourceManager.GetString("DefaultTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interval:.
+        /// </summary>
+        public static string Interval {
+            get {
+                return ResourceManager.GetString("Interval", resourceCulture);
             }
         }
         
@@ -152,11 +152,20 @@ namespace KiepTimer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Text:.
+        ///   Looks up a localized string similar to Subtitle.
         /// </summary>
-        public static string Text {
+        public static string Subtitle {
             get {
-                return ResourceManager.GetString("Text", resourceCulture);
+                return ResourceManager.GetString("Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
     }

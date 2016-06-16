@@ -41,13 +41,16 @@ namespace KiepTimer
             hideNotificationPlayer.Open(new Uri("SoundHide.wav", UriKind.Relative));
         }
 
-        public void StartTimer(TimeSpan interval, string text, bool playSound, Color color, int fontSize)
+        public void StartTimer(TimeSpan interval, string titleText, Color titleColor, int titleFontSize, string subtitleText, Color subtitleColor, int subtitleFontSize, bool playSound)
         {
-            this.playSound = playSound;
-            textLabel.Content = text;
-            textLabel.Foreground = new SolidColorBrush(color);
-            textLabel.FontSize = fontSize;
+            textblockTitle.Text = titleText;
+            textblockTitle.Foreground = new SolidColorBrush(titleColor);
+            textblockTitle.FontSize = titleFontSize;
+            textblockSubtitle.Text = subtitleText;
+            textblockSubtitle.Foreground = new SolidColorBrush(subtitleColor);
+            textblockSubtitle.FontSize = subtitleFontSize;
 
+            this.playSound = playSound;
             if (playSound)
             {
                 hideNotificationPlayer.Position = new TimeSpan(0);

@@ -24,11 +24,23 @@ namespace KiepTimer
         private void ReadSettings()
         {
             interval.Value = Properties.Settings.Default.Interval;
-            text.Text = Properties.Settings.Default.Text;
-            colorPicker.SelectedColor = Properties.Settings.Default.Color;
-            fontSize.Value = Properties.Settings.Default.Size;
+            textTitle.Text = Properties.Settings.Default.TitleText;
+            colorPickerTitle.SelectedColor = Properties.Settings.Default.TitleColor;
+            fontSizeTitle.Value = Properties.Settings.Default.TitleFontSize;
+            textSubtitle.Text = Properties.Settings.Default.SubtitleText;
+            colorPickerSubtitle.SelectedColor = Properties.Settings.Default.SubtitleColor;
+            fontSizeSubtitle.Value = Properties.Settings.Default.SubtitleFontSize;
             cbSound.IsChecked = Properties.Settings.Default.PlaySound;
             cbAutoStart.IsChecked = IsAutoStart();
+
+            if (string.IsNullOrEmpty(textTitle.Text))
+            {
+                textTitle.Text = Properties.Resources.DefaultTitle;
+            }
+            if (string.IsNullOrEmpty(textSubtitle.Text))
+            {
+                textSubtitle.Text = Properties.Resources.DefaultSubtitle;
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -38,16 +50,22 @@ namespace KiepTimer
             Visibility = Visibility.Hidden;
             ShowInTaskbar = false;
 
-            notification.StartTimer(interval.Value.GetValueOrDefault(), text.Text, cbSound.IsChecked.GetValueOrDefault(), colorPicker.SelectedColor.GetValueOrDefault(), fontSize.Value.GetValueOrDefault());
+            notification.StartTimer(interval.Value.GetValueOrDefault(), 
+                textTitle.Text, colorPickerTitle.SelectedColor.GetValueOrDefault(), fontSizeTitle.Value.GetValueOrDefault(),
+                textSubtitle.Text, colorPickerSubtitle.SelectedColor.GetValueOrDefault(), fontSizeSubtitle.Value.GetValueOrDefault(),
+                cbSound.IsChecked.GetValueOrDefault());
         }
 
         private void SaveSettings()
         {
             Properties.Settings.Default.Interval = interval.Value.GetValueOrDefault();
-            Properties.Settings.Default.Text = text.Text;
+            Properties.Settings.Default.TitleText = textTitle.Text;
+            Properties.Settings.Default.TitleColor = colorPickerTitle.SelectedColor.GetValueOrDefault();
+            Properties.Settings.Default.TitleFontSize = fontSizeTitle.Value.GetValueOrDefault();
+            Properties.Settings.Default.SubtitleText = textSubtitle.Text;
+            Properties.Settings.Default.SubtitleColor = colorPickerSubtitle.SelectedColor.GetValueOrDefault();
+            Properties.Settings.Default.SubtitleFontSize = fontSizeSubtitle.Value.GetValueOrDefault();
             Properties.Settings.Default.PlaySound = cbSound.IsChecked.GetValueOrDefault();
-            Properties.Settings.Default.Color = colorPicker.SelectedColor.GetValueOrDefault();
-            Properties.Settings.Default.Size = fontSize.Value.GetValueOrDefault();
             Properties.Settings.Default.Save();
         }
 

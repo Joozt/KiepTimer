@@ -120,15 +120,15 @@
   <data name="Color" xml:space="preserve">
     <value>Kleur:</value>
   </data>
-  <data name="Interval" xml:space="preserve">
-    <value>Interval:</value>
-  </data>
-  <data name="NotificationHint" xml:space="preserve">
+  <data name="DefaultSubtitle" xml:space="preserve">
     <value>Klik of escape om te verbergen
 Stoppen met Q</value>
   </data>
-  <data name="Notify" xml:space="preserve">
+  <data name="DefaultTitle" xml:space="preserve">
     <value>Bakkes!</value>
+  </data>
+  <data name="Interval" xml:space="preserve">
+    <value>Interval:</value>
   </data>
   <data name="PlaySound" xml:space="preserve">
     <value>Geluid afspelen</value>
@@ -149,7 +149,10 @@ Stoppen met Q</value>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Auto start met Windows</value>
   </data>
-  <data name="Text" xml:space="preserve">
-    <value>Tekst:</value>
+  <data name="Subtitle" xml:space="preserve">
+    <value>Sub-tekst</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tekst</value>
   </data>
 </root>
