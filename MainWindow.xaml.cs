@@ -31,6 +31,7 @@ namespace KiepTimer
             colorPickerSubtitle.SelectedColor = Properties.Settings.Default.SubtitleColor;
             fontSizeSubtitle.Value = Properties.Settings.Default.SubtitleFontSize;
             cbSound.IsChecked = Properties.Settings.Default.PlaySound;
+            cbNoStealFocus.IsChecked = Properties.Settings.Default.NoStealFocus;
             cbAutoStart.IsChecked = IsAutoStart();
 
             if (string.IsNullOrEmpty(textTitle.Text))
@@ -53,7 +54,7 @@ namespace KiepTimer
             notification.StartTimer(interval.Value.GetValueOrDefault(), 
                 textTitle.Text, colorPickerTitle.SelectedColor.GetValueOrDefault(), fontSizeTitle.Value.GetValueOrDefault(),
                 textSubtitle.Text, colorPickerSubtitle.SelectedColor.GetValueOrDefault(), fontSizeSubtitle.Value.GetValueOrDefault(),
-                cbSound.IsChecked.GetValueOrDefault());
+                cbSound.IsChecked.GetValueOrDefault(), cbNoStealFocus.IsChecked.GetValueOrDefault());
         }
 
         private void SaveSettings()
@@ -66,6 +67,7 @@ namespace KiepTimer
             Properties.Settings.Default.SubtitleColor = colorPickerSubtitle.SelectedColor.GetValueOrDefault();
             Properties.Settings.Default.SubtitleFontSize = fontSizeSubtitle.Value.GetValueOrDefault();
             Properties.Settings.Default.PlaySound = cbSound.IsChecked.GetValueOrDefault();
+            Properties.Settings.Default.NoStealFocus = cbNoStealFocus.IsChecked.GetValueOrDefault();
             Properties.Settings.Default.Save();
         }
 

@@ -98,6 +98,15 @@ namespace KiepTimer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do not steal focus when notification pops up.
+        /// </summary>
+        public static string NoStealFocus {
+            get {
+                return ResourceManager.GetString("NoStealFocus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Play sound.
         /// </summary>
         public static string PlaySound {

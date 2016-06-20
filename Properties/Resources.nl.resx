@@ -130,6 +130,9 @@ Stoppen met Q</value>
   <data name="Interval" xml:space="preserve">
     <value>Interval:</value>
   </data>
+  <data name="NoStealFocus" xml:space="preserve">
+    <value>Behoud focus op originele applicatie tijdens notificatie</value>
+  </data>
   <data name="PlaySound" xml:space="preserve">
     <value>Geluid afspelen</value>
   </data>

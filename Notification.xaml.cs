@@ -12,6 +12,7 @@ namespace KiepTimer
         private System.Windows.Media.MediaPlayer showNotificationPlayer = new System.Windows.Media.MediaPlayer();
         private System.Windows.Media.MediaPlayer hideNotificationPlayer = new System.Windows.Media.MediaPlayer();
         private bool playSound;
+        private bool noStealFocus;
 
         public Notification()
         {
@@ -41,7 +42,7 @@ namespace KiepTimer
             hideNotificationPlayer.Open(new Uri("SoundHide.wav", UriKind.Relative));
         }
 
-        public void StartTimer(TimeSpan interval, string titleText, Color titleColor, int titleFontSize, string subtitleText, Color subtitleColor, int subtitleFontSize, bool playSound)
+        public void StartTimer(TimeSpan interval, string titleText, Color titleColor, int titleFontSize, string subtitleText, Color subtitleColor, int subtitleFontSize, bool playSound, bool noStealFocus)
         {
             textblockTitle.Text = titleText;
             textblockTitle.Foreground = new SolidColorBrush(titleColor);
@@ -50,6 +51,7 @@ namespace KiepTimer
             textblockSubtitle.Foreground = new SolidColorBrush(subtitleColor);
             textblockSubtitle.FontSize = subtitleFontSize;
 
+            this.noStealFocus = noStealFocus;
             this.playSound = playSound;
             if (playSound)
             {
@@ -75,6 +77,17 @@ namespace KiepTimer
                 showNotificationPlayer.Play();
             }
             timer.Stop();
+
+            if (noStealFocus) {
+                ShowActivated = false;
+                Topmost = true;
+                WindowState = WindowState.Normal;
+                Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+                Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+                Top = 0;
+                Left = 0;
+            }     
+
             Show();
         }
 

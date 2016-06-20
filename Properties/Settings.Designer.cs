@@ -118,5 +118,17 @@ namespace KiepTimer.Properties {
                 this["SubtitleFontSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NoStealFocus {
+            get {
+                return ((bool)(this["NoStealFocus"]));
+            }
+            set {
+                this["NoStealFocus"] = value;
+            }
+        }
     }
 }

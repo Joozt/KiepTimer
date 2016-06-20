@@ -8,9 +8,11 @@ Features:
  - Configurable notification text, color and size
  - Auto start with Windows
  - Notification sound
+ - Have notification steal focus or not
  - Shows icon in system tray while in background
  - Dutch and English language support
 
 ![Screenshot](Screenshot2.png "Screenshot")
+![Screenshot](Screenshot3.png "Screenshot")
  
 ![Screenshot](Screenshot.png "Screenshot")
