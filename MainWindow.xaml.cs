@@ -1,5 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using Microsoft.Win32;
+using System;
+using System.Reflection;
 using System.Windows;
 
 namespace KiepTimer
@@ -12,7 +13,7 @@ namespace KiepTimer
         {
             InitializeComponent();
 
-            Title = "KiepTimer v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString().Replace(".0.0", "");
+            Title = "KiepTimer v" + Assembly.GetExecutingAssembly().GetName().Version.ToString().Replace(".0.0", "");
             taskbarIcon.ToolTipText = Title;
             notification.Title = Title;
 
@@ -51,7 +52,7 @@ namespace KiepTimer
             Visibility = Visibility.Hidden;
             ShowInTaskbar = false;
 
-            notification.StartTimer(interval.Value.GetValueOrDefault(), 
+            notification.StartTimer(interval.Value.GetValueOrDefault(),
                 textTitle.Text, colorPickerTitle.SelectedColor.GetValueOrDefault(), fontSizeTitle.Value.GetValueOrDefault(),
                 textSubtitle.Text, colorPickerSubtitle.SelectedColor.GetValueOrDefault(), fontSizeSubtitle.Value.GetValueOrDefault(),
                 cbSound.IsChecked.GetValueOrDefault(), cbNoStealFocus.IsChecked.GetValueOrDefault());
@@ -98,10 +99,10 @@ namespace KiepTimer
 
         private void cbAutoStart_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.RegistryKey registryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (cbAutoStart.IsChecked.GetValueOrDefault())
             {
-                registryKey.SetValue("KiepTimer", "\"" + System.Reflection.Assembly.GetExecutingAssembly().Location + "\" autostart");
+                registryKey.SetValue("KiepTimer", "\"" + Assembly.GetExecutingAssembly().Location + "\" autostart");
             }
             else
             {
@@ -111,7 +112,7 @@ namespace KiepTimer
 
         private bool IsAutoStart()
         {
-            Microsoft.Win32.RegistryKey registryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
             return registryKey.GetValue("KiepTimer") != null;
         }
     }

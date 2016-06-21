@@ -12,7 +12,8 @@
 
     <Grid>
         <Label Content="{x:Static p:Resources.Interval}" Margin="10,10,0,0" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <xctk:TimeSpanUpDown x:Name="interval" Margin="140,10,10,0" CultureInfo="nl-NL" DefaultValue="0:5:0" Minimum="0:0:5" Maximum="23:59:59" Text="00:05:00" ClipValueToMinMax="True" DisplayDefaultValueOnEmptyText="True" Height="45" VerticalAlignment="Top" TextAlignment="Left"/>
+        <xctk:TimeSpanUpDown x:Name="interval" Margin="140,10,10,0" CultureInfo="nl-NL" DefaultValue="0:5:0" Minimum="0:0:5" Maximum="23:59:59" 
+                             Text="00:05:00" ClipValueToMinMax="True" DisplayDefaultValueOnEmptyText="True" Height="45" VerticalAlignment="Top" TextAlignment="Left"/>
 
         <TabControl Margin="10,65,10,213">
             <TabItem Header="{x:Static p:Resources.Title}">
@@ -24,7 +25,8 @@
                     <xctk:ColorPicker x:Name="colorPickerTitle" Margin="125,0,10,59" ColorMode="ColorCanvas" Height="45" VerticalAlignment="Bottom" />
 
                     <Label Content="{x:Static p:Resources.Size}" Margin="10,0,0,9" HorizontalAlignment="Left" Height="45" VerticalAlignment="Bottom"/>
-                    <xctk:IntegerUpDown x:Name="fontSizeTitle" Margin="125,0,10,9" Increment="10" Maximum="500" Minimum="20" TextAlignment="Left" ClipValueToMinMax="True" Height="45" VerticalAlignment="Bottom" />
+                    <xctk:IntegerUpDown x:Name="fontSizeTitle" Margin="125,0,10,9" Increment="10" Maximum="500" Minimum="20" TextAlignment="Left" 
+                                        ClipValueToMinMax="True" Height="45" VerticalAlignment="Bottom" />
                 </Grid>
             </TabItem>
             <TabItem Header="{x:Static p:Resources.Subtitle}">
@@ -35,7 +37,8 @@
                     <xctk:ColorPicker x:Name="colorPickerSubtitle" Margin="125,0,10,59" ColorMode="ColorCanvas" Height="45" VerticalAlignment="Bottom" />
 
                     <Label Content="{x:Static p:Resources.Size}" Margin="10,0,0,9" HorizontalAlignment="Left" Height="45" VerticalAlignment="Bottom"/>
-                    <xctk:IntegerUpDown x:Name="fontSizeSubtitle" Margin="125,0,10,9" Increment="5" Maximum="500" Minimum="10" TextAlignment="Left" ClipValueToMinMax="True" Height="45" VerticalAlignment="Bottom" />
+                    <xctk:IntegerUpDown x:Name="fontSizeSubtitle" Margin="125,0,10,9" Increment="5" Maximum="500" Minimum="10" TextAlignment="Left" 
+                                        ClipValueToMinMax="True" Height="45" VerticalAlignment="Bottom" />
 
                 </Grid>
             </TabItem>
@@ -43,7 +46,8 @@
 
 
 
-        <CheckBox x:Name="cbAutoStart" Content="{x:Static p:Resources.StartWithWindows}" Margin="10,0,10,162" Height="35" VerticalAlignment="Bottom" Checked="cbAutoStart_CheckedChanged" Unchecked="cbAutoStart_CheckedChanged"/>
+        <CheckBox x:Name="cbAutoStart" Content="{x:Static p:Resources.StartWithWindows}" Margin="10,0,10,162" Height="35" VerticalAlignment="Bottom" 
+                  Checked="cbAutoStart_CheckedChanged" Unchecked="cbAutoStart_CheckedChanged"/>
         <CheckBox x:Name="cbSound" Content="{x:Static p:Resources.PlaySound}" Margin="10,0,10,122" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Bottom"/>
         <CheckBox x:Name="cbNoStealFocus" Content="{x:Static p:Resources.NoStealFocus}" Margin="10,0,10,82" Height="35" VerticalAlignment="Bottom"/>
 

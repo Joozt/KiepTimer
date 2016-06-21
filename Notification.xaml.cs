@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace KiepTimer
 {
     public partial class Notification : Window
     {
-        private System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
-        private System.Windows.Media.MediaPlayer showNotificationPlayer = new System.Windows.Media.MediaPlayer();
-        private System.Windows.Media.MediaPlayer hideNotificationPlayer = new System.Windows.Media.MediaPlayer();
+        private const int KEY_CODE_ESCAPE = 27;
+        private const int KEY_CODE_Q = 81;
+        private DispatcherTimer timer = new DispatcherTimer();
+        private MediaPlayer showNotificationPlayer = new MediaPlayer();
+        private MediaPlayer hideNotificationPlayer = new MediaPlayer();
         private bool playSound;
         private bool noStealFocus;
 
@@ -66,7 +70,7 @@ namespace KiepTimer
         public void StopTimer()
         {
             timer.Stop();
-            Hide();
+            HideNotification();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -78,17 +82,18 @@ namespace KiepTimer
             }
             timer.Stop();
 
-            if (noStealFocus) {
+            if (noStealFocus)
+            {
                 ShowActivated = false;
                 Topmost = true;
                 WindowState = WindowState.Normal;
-                Width = System.Windows.SystemParameters.PrimaryScreenWidth;
-                Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+                Width = SystemParameters.PrimaryScreenWidth;
+                Height = SystemParameters.PrimaryScreenHeight;
                 Top = 0;
                 Left = 0;
-            }     
+            }
 
-            Show();
+            ShowNotification();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -98,26 +103,42 @@ namespace KiepTimer
                 hideNotificationPlayer.Position = new TimeSpan(0);
                 hideNotificationPlayer.Play();
             }
-            Hide();
+            HideNotification();
             timer.Start();
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private void LowLevelKeyboardHookEvent(int keycode)
         {
-            if (e.Key == Key.Escape)
+            Console.Out.WriteLine(keycode);
+
+            if (keycode == KEY_CODE_ESCAPE)
             {
                 if (playSound)
                 {
                     hideNotificationPlayer.Position = new TimeSpan(0);
                     hideNotificationPlayer.Play();
                 }
-                Hide();
+                HideNotification();
                 timer.Start();
             }
-            if (e.Key == Key.Q)
+            if (keycode == KEY_CODE_Q)
             {
                 Application.Current.Shutdown();
             }
+        }
+
+        private void ShowNotification()
+        {
+            LowLevelKeyboardHook.Instance.SetBlockedKeys(new List<int>() { KEY_CODE_ESCAPE, KEY_CODE_Q });
+            LowLevelKeyboardHook.Instance.KeyboardHookEvent += LowLevelKeyboardHookEvent;
+            Show();
+        }
+
+        private void HideNotification()
+        {
+            LowLevelKeyboardHook.Instance.SetBlockedKeys(null);
+            LowLevelKeyboardHook.Instance.KeyboardHookEvent -= LowLevelKeyboardHookEvent;
+            Hide();
         }
     }
 }

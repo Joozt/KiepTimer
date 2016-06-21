@@ -7,7 +7,7 @@
         xmlns:p="clr-namespace:KiepTimer.Properties"
         mc:Ignorable="d"
         Title="KiepTimer" Height="303" Width="392.559" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" 
-        Icon="Icon.ico" WindowStartupLocation="CenterScreen" Background="#99000000" MouseDown="Window_MouseDown" KeyDown="Window_KeyDown" 
+        Icon="Icon.ico" WindowStartupLocation="CenterScreen" Background="#99000000" MouseDown="Window_MouseDown"
         FontSize="25" WindowState="Maximized">
     
     <Grid>
